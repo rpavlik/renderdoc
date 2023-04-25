@@ -514,6 +514,11 @@ if(ENABLE_VULKAN)
     list(APPEND renderdoc_objects $<TARGET_OBJECTS:rdoc_vulkan>)
 endif()
 
+if(ENABLE_OPENXR)
+    add_subdirectory(driver/openxr)
+    list(APPEND renderdoc_objects $<TARGET_OBJECTS:rdoc_openxr>)
+endif()
+
 if(ENABLE_GL OR ENABLE_GLES OR ENABLE_VULKAN)
     list(APPEND sources data/glsl_shaders.cpp data/glsl_shaders.h)
 

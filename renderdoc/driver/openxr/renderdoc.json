@@ -1,0 +1,24 @@
+{
+  "file_format_version": "1.0",
+  "layer": {
+    "name": "XR_LAYER_RENDERDOC_Capture",
+    "type": "GLOBAL",
+    "library_path": "@OPENXR_LAYER_MODULE_PATH@",
+    "api_version": "1.0.27",
+    "implementation_version": "@RENDERDOC_VERSION_MINOR@",
+    "description": "Debugging capture layer for RenderDoc",
+    "functions": {
+      "xrGetInstanceProcAddr": "XR_LAYER_RENDERDOC_CaptureGetInstanceProcAddr",
+      "xrNegotiateLoaderLayerInterfaceVersion": "XR_LAYER_RENDERDOC_CaptureNegotiateLoaderLayerInterfaceVersion"
+    },
+    "pre_instance_functions": {
+      "vkEnumerateInstanceExtensionProperties": "XR_LAYER_RENDERDOC_CaptureEnumerateInstanceExtensionProperties"
+    },
+    "enable_environment": {
+      "@OPENXR_ENABLE_VAR@": "1"
+    },
+    "disable_environment": {
+      "DISABLE_OPENXR_RENDERDOC_CAPTURE_@RENDERDOC_VERSION_MAJOR@_@RENDERDOC_VERSION_MINOR@": "1"
+    }
+  }
+}
